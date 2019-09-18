@@ -41,29 +41,49 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
 function getLength(arr, cb) {
   // getLength passes the length of the array into the callback.
+  return cb(arr.length);
 }
+getLength(items, (length) => console.log(length));
 
 function last(arr, cb) {
   // last passes the last item of the array into the callback.
+  const lastItem = arr[arr.length - 1];
+  return cb(lastItem);
 }
+last(items, (i) => console.log(i));
 
 function sumNums(x, y, cb) {
   // sumNums adds two numbers (x, y) and passes the result to the callback.
+  const sum = x + y;
+  return cb(sum);
 }
+sumNums(10, 3, (total) => console.log(total));
 
 function multiplyNums(x, y, cb) {
   // multiplyNums multiplies two numbers and passes the result to the callback.
+  let product = x * y;
+  return cb(product);
 }
+multiplyNums(10, 3, (answer) => console.log(answer));
 
 function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
+  for (let i = 0; i < list.length; i++) {
+    if(list[i] === item) {
+      onList = true;
+    }
+    else onList = false;
+  }
+  return cb(onList);
 }
+let houses = ['Hufflepuff', 'Gryffindor', 'Slytherin', 'RavenClaw']
+contains('RavenClaw', houses, (momentOfTruth) => console.log(momentOfTruth));
 
-/* STRETCH PROBLEM */
+// /* STRETCH PROBLEM */
 
-function removeDuplicates(array, cb) {
-  // removeDuplicates removes all duplicate values from the given array.
-  // Pass the duplicate free array to the callback function.
-  // Do not mutate the original array.
-}
+// function removeDuplicates(array, cb) {
+//   // removeDuplicates removes all duplicate values from the given array.
+//   // Pass the duplicate free array to the callback function.
+//   // Do not mutate the original array.
+// }
